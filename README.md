@@ -72,4 +72,7 @@ Disconnected from the target VM, address: 'localhost:50054', transport: 'socket'
 то всё работает, но меню появляется не на том месте
 
 ![](bad_menu_position.png)
+
+Ну а в остальном команды CRUD работают, изменения в SQLITE ,базе сохраняются, дело
+движется и нужно только ещё время, чтобы задача была решена :-)
         
