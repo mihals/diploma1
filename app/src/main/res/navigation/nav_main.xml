@@ -9,5 +9,34 @@
         android:id="@+id/recipeListFragment"
         android:name="ru.netology.diploma.RecipeListFragment"
         android:label="fragment_recipe_list"
-        tools:layout="@layout/fragment_recipe_list" />
+        tools:layout="@layout/fragment_recipe_list" >
+        <action
+            android:id="@+id/action_recipeListFragment_to_newRecipeFragment"
+            app:destination="@id/newRecipeFragment" />
+        <action
+            android:id="@+id/action_recipeListFragment_to_singleRecipeFragment"
+            app:destination="@id/singleRecipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newRecipeFragment"
+        android:name="ru.netology.diploma.NewRecipeFragment"
+        android:label="fragment_new_recipe"
+        tools:layout="@layout/fragment_new_recipe" >
+        <argument
+            android:name="recipeId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/singleRecipeFragment"
+        android:name="ru.netology.diploma.SingleRecipeFragment"
+        android:label="fragment_single_recipe"
+        tools:layout="@layout/fragment_single_recipe" >
+        <argument
+            android:name="recipeId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <action
+            android:id="@+id/action_singleRecipeFragment_to_newRecipeFragment"
+            app:destination="@id/newRecipeFragment" />
+    </fragment>
 </navigation>

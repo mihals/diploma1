@@ -1,8 +1,9 @@
 package ru.netology.diploma
 
-data class Recipe (
+data class Recipe(
     val id:Long,
-    val kithenName:String,
-    val shortDescription:String,
+    val kitchenOrdinal: Int,
+    val recipeName: String,
+    //val shortDescription:String,
     val content:String
 )

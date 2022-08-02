@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/drawable/ic_baseline_highlight_off_24.xml" value="0.1685185185185185" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_new_recipe.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_recipe_list.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/recipe.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_single_recipe.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/recipe.xml" value="0.12" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/menu/options.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

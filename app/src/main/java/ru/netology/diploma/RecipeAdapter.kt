@@ -13,14 +13,24 @@ internal class RecipeAdapter(
 
     class ViewHolder(
         private val binding: RecipeBinding,
+        listener:RecipeViewModel
     ) : RecyclerView.ViewHolder(binding.root) {
         private lateinit var recipe: Recipe
 
+        init {
+            itemView.setOnClickListener {
+                listener.onRecipeCardClicked(recipe.id)
+            }
+        }
+
         fun bind(recipe: Recipe) {
             this.recipe = recipe
+
             with(binding) {
-                kitchenName.text = recipe.kithenName
+                kitchenName.text = KitchenKindEnum
+                    .values()[recipe.kitchenOrdinal].kitchenKind
                 recipeContent.text =recipe.content
+                recipeCaption.text = recipe.recipeName
             }
         }
     }
@@ -29,13 +39,12 @@ internal class RecipeAdapter(
     ): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = RecipeBinding.inflate(inflater,parent,false)
-        return ViewHolder(binding)
+        return ViewHolder(binding,interactionListener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int
     ) {
         holder.bind(getItem(position))
-        //holder.
     }
 
     private object DiffCallBack : DiffUtil.ItemCallback<Recipe>(){

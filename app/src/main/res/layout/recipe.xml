@@ -20,6 +20,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Здесь будет располагаться название кухни." />
+
+    <TextView
+        android:id="@+id/recipeCaption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@id/kitchenName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Здесь будет располагаться название кухни." />
+
     <TextView
         android:id="@+id/recipeContent"
         android:layout_width="0dp"
@@ -28,7 +40,7 @@
         android:singleLine="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/kitchenName"
+        app:layout_constraintTop_toBottomOf="@id/recipeCaption"
         tools:text="Содержание. Здесь будет описываться рецепт" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

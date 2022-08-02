@@ -2,4 +2,7 @@
     <string name="app_name">Diploma</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recipe_name">Recipe</string>
+    <string name="menu_edit">Изменить</string>
+    <string name="remove">Удалить</string>
 </resources>
