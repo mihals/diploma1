@@ -5,4 +5,7 @@
     <string name="recipe_name">Recipe</string>
     <string name="menu_edit">Изменить</string>
     <string name="remove">Удалить</string>
+    <string name="app_label">diploma</string>
+    <string name="search_hint">Название рецепта</string>
+    <string name="search_kitchen">Выбор кухни</string>
 </resources>

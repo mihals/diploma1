@@ -7,7 +7,10 @@ import ru.netology.diploma.Recipe
 @Dao
 interface RecipeDao {
     @Query("SELECT * FROM recipes ORDER BY id DESC")
-    fun getAll():LiveData<List<RecipeEntity>>
+    fun getAll(): LiveData<List<RecipeEntity>>
+
+    @Query("SELECT * FROM recipes WHERE kitchenOrdinal=:id  ORDER BY id DESC")
+    fun getByKitchenId(id:Int):LiveData<List<RecipeEntity>>
 
     @Query("SELECT * FROM recipes WHERE id=:id")
     fun getById(id:Long):Recipe

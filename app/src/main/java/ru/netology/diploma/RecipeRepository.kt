@@ -12,8 +12,21 @@ class RecipeRepository(
     private val recipes
         get() = checkNotNull(data.value) { "" }
 
-    val data = Transformations.map(dao.getAll()){ entities ->
+    var data = ( Transformations.map(dao.getAll()){ entities ->
         entities.map{it.toModel()}
+    })
+
+    fun getByKitchenId(id: Int) {
+        if (id == 0) {
+            data = (Transformations.map(dao.getAll()) { entities ->
+                entities.map { it.toModel() }
+            })
+            return
+        }
+
+        data = (Transformations.map(dao.getByKitchenId(id-1)) { entities ->
+            entities.map { it.toModel() }
+        })
     }
 
     fun save(recipe: Recipe){

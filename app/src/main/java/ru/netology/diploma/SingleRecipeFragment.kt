@@ -16,32 +16,32 @@ class SingleRecipeFragment : Fragment() {
     private val viewModel:RecipeViewModel by activityViewModels ()
     private lateinit var recipe:Recipe
 
-    private val popupMenu by lazy{
-        PopupMenu(//activity!!.baseContext,
-            context,
-            view?.findViewById(R.id.options)
-        ).apply {
-            inflate(R.menu.options)
-            setOnMenuItemClickListener { item ->
-                when(item.itemId){
-                    R.id.remove ->{
-                        viewModel.onRemoveRecipeClicked(recipe)
-                        findNavController().popBackStack()
-                    }
-                    R.id.edit ->{
-                        findNavController().navigate(
-                            SingleRecipeFragmentDirections
-                                .actionSingleRecipeFragmentToNewRecipeFragment(
-                                    recipe.id))
-                    }
-                    R.id.toList ->{
-                        findNavController().popBackStack()
-                    }
-                }
-                true
-            }
-        }
-    }
+//    private val popupMenu by lazy{
+//        PopupMenu(//activity!!.baseContext,
+//            context,
+//            view?.findViewById(R.id.options)
+//        ).apply {
+//            inflate(R.menu.options)
+//            setOnMenuItemClickListener { item ->
+//                when(item.itemId){
+//                    R.id.remove ->{
+//                        viewModel.onRemoveRecipeClicked(recipe)
+//                        findNavController().popBackStack()
+//                    }
+//                    R.id.edit ->{
+//                        findNavController().navigate(
+//                            SingleRecipeFragmentDirections
+//                                .actionSingleRecipeFragmentToNewRecipeFragment(
+//                                    recipe.id))
+//                    }
+//                    R.id.toList ->{
+//                        findNavController().popBackStack()
+//                    }
+//                }
+//                true
+//            }
+//        }
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,12 +53,39 @@ class SingleRecipeFragment : Fragment() {
         savedInstanceState: Bundle?
     )= FragmentSingleRecipeBinding.inflate(layoutInflater,container,false)
         .also{binding ->
-            binding.options.setOnClickListener{popupMenu.show()}
             recipe = viewModel.getById(args.recipeId)
             binding.textContent.text=recipe.content
             binding.textCaption.text=recipe.recipeName
             binding.kitchenKind.text =
                 KitchenKindEnum.values()[recipe.kitchenOrdinal].kitchenKind
+
+            val popupMenu =
+                PopupMenu(//activity!!.baseContext,
+                    context,
+                    binding.options
+                ).apply {
+                    inflate(R.menu.options)
+                    setOnMenuItemClickListener { item ->
+                        when(item.itemId){
+                            R.id.remove ->{
+                                viewModel.onRemoveRecipeClicked(recipe)
+                                findNavController().popBackStack()
+                            }
+                            R.id.edit ->{
+                                findNavController().navigate(
+                                    SingleRecipeFragmentDirections
+                                        .actionSingleRecipeFragmentToNewRecipeFragment(
+                                            recipe.id))
+                            }
+                            R.id.toList ->{
+                                findNavController().popBackStack()
+                            }
+                        }
+                        true
+                    }
+                }
+            binding.options.setOnClickListener{popupMenu.show()}
+
         }.root
         //return inflater.inflate(R.layout.fragment_single_recipe, container, false)
 }

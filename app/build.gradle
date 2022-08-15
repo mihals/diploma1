@@ -9,6 +9,10 @@ plugins {
 android {
     compileSdk 32
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "ru.netology.nmedia"
         minSdk 23
