@@ -2,15 +2,16 @@ package ru.netology.diploma
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import ru.netology.diploma.room.AppDb
+import ru.netology.diploma.room.AppDbEx
 import ru.netology.nmedia.util.SingleLiveEvent
 
 class RecipeViewModel(application:Application
 ):AndroidViewModel(application) {
     private val repository = RecipeRepository(
-        dao = AppDb.getInstance(context = application).recipeDao)
+        dao = AppDbEx.getInstance(context = application).recipeDao)
     val navigateToSingleRecipeFragmentEvent = SingleLiveEvent<Long>()
     val changeKitchenKindEvent = SingleLiveEvent<Int>()
+    val selectFavoriteEvent = SingleLiveEvent<Int>()
     val data by repository::data
     var selectedKitchenId = -1
 
@@ -48,6 +49,18 @@ class RecipeViewModel(application:Application
 
     fun update(recipe: Recipe){
         repository.update(recipe)
+    }
+
+    fun changeFavorite(recipe: Recipe){
+        repository.changeFavorite(recipe)
+    }
+
+    fun selectFavorite(){
+        repository.selectFavorite()
+    }
+
+    fun selectAll(){
+        repository.selectAll()
     }
 
 }

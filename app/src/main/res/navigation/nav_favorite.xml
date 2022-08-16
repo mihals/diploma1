@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="ru.netology.diploma.FavoriteFragment"
-        android:label="fragment_new_recipe"
+        android:label="Избранное"
         tools:layout="@layout/fragment_favorite"/>
 
 </navigation>

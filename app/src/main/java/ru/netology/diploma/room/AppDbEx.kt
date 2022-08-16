@@ -9,17 +9,17 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [RecipeEntity::class],
-    version = 4,
+    version = 1
 )
 
-abstract class AppDb:RoomDatabase() {
+abstract class AppDbEx:RoomDatabase() {
     abstract val recipeDao:RecipeDao
 
     companion object{
         @Volatile
-        private var instanse:AppDb? = null
+        private var instanse:AppDbEx? = null
 
-        fun getInstance(context:Context):AppDb{
+        fun getInstance(context:Context):AppDbEx{
             return instanse?: synchronized(this){
                 instanse?: buildDatabase(context).also{ instanse=it}
             }
@@ -27,9 +27,8 @@ abstract class AppDb:RoomDatabase() {
 
         private fun buildDatabase(context: Context)=
             Room.databaseBuilder(
-                context, AppDb::class.java, "app.db"
-            ).fallbackToDestructiveMigration().build()
-                //.allowMainThreadQueries().build()
+                context, AppDbEx::class.java, "app_ex.db"
+            ).allowMainThreadQueries().build()
 
     }
 }

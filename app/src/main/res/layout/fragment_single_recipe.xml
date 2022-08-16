@@ -49,6 +49,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text = ""/>
 
+    <ImageView
+        android:id="@+id/likes"
+        android:src="@drawable/ic_baseline_favorite_border_24"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="@dimen/common_spacing"
+        app:layout_constraintTop_toBottomOf="@id/textContent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

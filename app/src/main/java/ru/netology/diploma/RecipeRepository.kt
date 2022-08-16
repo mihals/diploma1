@@ -46,4 +46,20 @@ class RecipeRepository(
     fun delete(recipe: Recipe){
         dao.delete(recipe.toEntity())
     }
+
+    fun changeFavorite(recipe:Recipe){
+        dao.update(recipe.toEntity())
+    }
+
+    fun selectFavorite(){
+        data = (Transformations.map(dao.selectFavorite()) { entities ->
+            entities.map { it.toModel() }
+        } as MutableLiveData<List<Recipe>>)
+    }
+
+    fun selectAll(){
+        data = (Transformations.map(dao.getAll()) { entities ->
+            entities.map { it.toModel() }
+        } as MutableLiveData<List<Recipe>>)
+    }
 }

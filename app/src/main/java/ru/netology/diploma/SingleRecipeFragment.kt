@@ -58,6 +58,23 @@ class SingleRecipeFragment : Fragment() {
             binding.textCaption.text=recipe.recipeName
             binding.kitchenKind.text =
                 KitchenKindEnum.values()[recipe.kitchenOrdinal].kitchenKind
+            binding.likes.setImageResource(
+                when {
+                    recipe.isFavorite -> R.drawable.ic_baseline_favorite_24
+                    else -> R.drawable.ic_baseline_favorite_border_24
+                }
+            )
+
+            binding.likes.setOnClickListener {
+                recipe=recipe.copy(isFavorite = !recipe.isFavorite)
+                viewModel.changeFavorite(recipe)
+                binding.likes.setImageResource(
+                    when {
+                        recipe.isFavorite -> R.drawable.ic_baseline_favorite_24
+                        else -> R.drawable.ic_baseline_favorite_border_24
+                    }
+                )
+            }
 
             val popupMenu =
                 PopupMenu(//activity!!.baseContext,

@@ -15,6 +15,12 @@ interface RecipeDao {
     @Query("SELECT * FROM recipes WHERE id=:id")
     fun getById(id:Long):Recipe
 
+    @Query("SELECT * FROM recipes WHERE id=:id")
+    fun updateFavorite(id:Long):Recipe
+
+    @Query("SELECT * FROM recipes WHERE isFavorite=1")
+    fun selectFavorite():LiveData<List<RecipeEntity>>
+
     @Insert
     fun insert(recipe:RecipeEntity)
 

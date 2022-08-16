@@ -9,5 +9,6 @@ class RecipeEntity(
     val id:Long,
     val kitchenOrdinal:Int,
     val recipeName:String,
-    val content:String
+    val content:String,
+    val isFavorite:Boolean
 )

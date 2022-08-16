@@ -52,7 +52,10 @@ class RecipeListFragment : Fragment() {
         .also { binding ->
             val adapter = RecipeAdapter(viewModel)
             binding.recipeRecyclerView.adapter = adapter
+            //if( viewModel.selectedKitchenId == 0) {viewModel.selectAll()}
+            //else{viewModel.selectedKitchenId ==-1}
             viewModel.data.observe(viewLifecycleOwner) { recipes ->
+                //binding.recipeRecyclerView.adapter = adapter
                 adapter.submitList(recipes)
             }
 

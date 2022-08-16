@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/recipeListFragment"
         android:name="ru.netology.diploma.RecipeListFragment"
-        android:label="fragment_recipe_list"
+        android:label="Рецепты"
         tools:layout="@layout/fragment_recipe_list" >
         <action
             android:id="@+id/action_recipeListFragment_to_newRecipeFragment"
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/newRecipeFragment"
         android:name="ru.netology.diploma.NewRecipeFragment"
-        android:label="fragment_new_recipe"
+        android:label="Новый рецепт"
         tools:layout="@layout/fragment_new_recipe" >
         <argument
             android:name="recipeId"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/singleRecipeFragment"
         android:name="ru.netology.diploma.SingleRecipeFragment"
-        android:label="fragment_single_recipe"
+        android:label="Рецепт"
         tools:layout="@layout/fragment_single_recipe" >
         <argument
             android:name="recipeId"

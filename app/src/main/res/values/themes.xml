@@ -19,4 +19,10 @@
         <item name="android:minWidth">@dimen/common_spacing</item>
         <item name="android:minHeight">@dimen/icon_button_min_size</item>
     </style>
+    <style name="Widget.AppThem.LikeCheckBox" parent="Widget.MaterialComponents.Button.TextButton.Icon">
+        <item name="icon">@drawable/ic_like</item>
+        <item name="iconTint">@animator/like_checkbox_tint</item>
+        <item name="android:minWidth">@dimen/icon_button_min_size</item>
+        <item name="android:minHeight">@dimen/icon_button_min_size</item>
+    </style>
 </resources>
