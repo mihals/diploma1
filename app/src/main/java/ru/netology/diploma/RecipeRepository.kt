@@ -1,6 +1,7 @@
 package ru.netology.diploma
 //import Collections.kt
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import ru.netology.diploma.room.RecipeDao
 import ru.netology.diploma.room.toEntity
@@ -14,19 +15,19 @@ class RecipeRepository(
 
     var data = ( Transformations.map(dao.getAll()){ entities ->
         entities.map{it.toModel()}
-    })
+    }) as MutableLiveData<List<Recipe>>
 
     fun getByKitchenId(id: Int) {
         if (id == 0) {
             data = (Transformations.map(dao.getAll()) { entities ->
                 entities.map { it.toModel() }
-            })
+            } as MutableLiveData<List<Recipe>>)
             return
         }
 
         data = (Transformations.map(dao.getByKitchenId(id-1)) { entities ->
             entities.map { it.toModel() }
-        })
+        } as MutableLiveData<List<Recipe>>)
     }
 
     fun save(recipe: Recipe){

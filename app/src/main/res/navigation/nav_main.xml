@@ -39,4 +39,5 @@
             android:id="@+id/action_singleRecipeFragment_to_newRecipeFragment"
             app:destination="@id/newRecipeFragment" />
     </fragment>
+
 </navigation>

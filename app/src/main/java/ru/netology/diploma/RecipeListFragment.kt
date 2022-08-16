@@ -27,12 +27,15 @@ class RecipeListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //val bottomBar:BottomAppBar = find
+        //(activity as AppCompatActivity).setSupportActionBar(mToolbar)
         viewModel.changeKitchenKindEvent.observe(this) {
-            findNavController().run {
-                popBackStack()
-                navigate(R.id.recipeListFragment)
-                setHasOptionsMenu(false)
-            }
+            RecipeAdapter(viewModel).notifyDataSetChanged()
+//            findNavController().run {
+//                popBackStack()
+//                navigate(R.id.recipeListFragment)
+//                setHasOptionsMenu(false)
+//            }
         }
         viewModel.navigateToSingleRecipeFragmentEvent
             .observe(this){recipeId ->

@@ -3,15 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/drawable/ic_baseline_add_circle_outline_24.xml" value="0.1125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.1125" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/drawable/ic_baseline_highlight_off_24.xml" value="0.1685185185185185" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1125" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/activity_searchable.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_favorite.xml" value="0.18" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_new_recipe.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_recipe_list.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/fragment_single_recipe.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/menu_bottom_nav.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/recipe.xml" value="0.12" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/sample_search_view.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/layout/search_item.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/menu/menu_bottom_nav.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/menu/options.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/menu/search_view" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Diploma/app/src/main/res/menu/search_view.xml" value="0.33" />
