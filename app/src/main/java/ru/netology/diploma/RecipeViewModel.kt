@@ -13,15 +13,9 @@ class RecipeViewModel(application:Application
     val changeKitchenKindEvent = SingleLiveEvent<Int>()
     val selectFavoriteEvent = SingleLiveEvent<Int>()
     val data by repository::data
-    var selectedKitchenId = -1
+    var selectedKitchenId = 0
 
     var selectedKitchenKindItem = 0
-
-//    fun getByKitchenId(id:Int){
-//        if(id!=0)
-//        repository.getByKitchenId(id-1)
-//        else repository.s
-//    }
 
     fun onAddNewRecipe(recipe: Recipe){
         repository.save(recipe)
@@ -38,7 +32,7 @@ class RecipeViewModel(application:Application
     fun onSelectKitchenKind(kitchenKindId: Int) {
         repository.getByKitchenId(kitchenKindId)
         if(kitchenKindId in 0..KitchenKindEnum.values().size) {
-            changeKitchenKindEvent.value = kitchenKindId
+            getById(kitchenKindId.toLong())
         }
     }
 

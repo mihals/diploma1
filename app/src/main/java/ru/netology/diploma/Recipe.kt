@@ -4,7 +4,6 @@ data class Recipe(
     val id:Long,
     val kitchenOrdinal: Int,
     val recipeName: String,
-    //val shortDescription:String,
     val content:String,
     val isFavorite:Boolean = false
 )

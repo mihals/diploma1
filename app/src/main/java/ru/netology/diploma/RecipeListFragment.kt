@@ -19,23 +19,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import ru.netology.diploma.databinding.FragmentRecipeListBinding
 
-//import android.widget.SearchView.OnQueryTextListener;
-
-
 class RecipeListFragment : Fragment() {
     private val viewModel:RecipeViewModel by activityViewModels ()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //val bottomBar:BottomAppBar = find
-        //(activity as AppCompatActivity).setSupportActionBar(mToolbar)
+        //viewModel.selectAll()
         viewModel.changeKitchenKindEvent.observe(this) {
             RecipeAdapter(viewModel).notifyDataSetChanged()
-//            findNavController().run {
-//                popBackStack()
-//                navigate(R.id.recipeListFragment)
-//                setHasOptionsMenu(false)
-//            }
         }
         viewModel.navigateToSingleRecipeFragmentEvent
             .observe(this){recipeId ->
@@ -50,16 +41,13 @@ class RecipeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ) = FragmentRecipeListBinding.inflate(layoutInflater,container,false)
         .also { binding ->
+            viewModel.onSelectKitchenKind(viewModel.selectedKitchenId)
             val adapter = RecipeAdapter(viewModel)
             binding.recipeRecyclerView.adapter = adapter
-            //if( viewModel.selectedKitchenId == 0) {viewModel.selectAll()}
-            //else{viewModel.selectedKitchenId ==-1}
             viewModel.data.observe(viewLifecycleOwner) { recipes ->
-                //binding.recipeRecyclerView.adapter = adapter
                 adapter.submitList(recipes)
             }
 
-            //val searchManager = context?.let { getSystemService(it, Context.SEARCH_SERVICE) }
             binding.fab.setOnClickListener{
                 findNavController().navigate(
                     RecipeListFragmentDirections
@@ -99,7 +87,6 @@ class RecipeListFragment : Fragment() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                //hideKeyboard()
                 return false
             }
 
@@ -115,7 +102,6 @@ class RecipeListFragment : Fragment() {
                 }
 
                 cursorAdapter.changeCursor(cursor)
-                val isQueryBlank = query.isNullOrBlank()
                 return true
             }
         })
@@ -136,13 +122,12 @@ class RecipeListFragment : Fragment() {
                 // Do something with selection
                 context?.let { closeKeyboard(it, view) }
                 viewModel.onSelectKitchenKind(pos)
+                viewModel.data.observe(viewLifecycleOwner){recipes->
+                    RecipeAdapter(viewModel).submitList(recipes)
+                }
                  return true
             }
         })
-
-
-        //override fun onActionViewExpanded() {}
-        //searchView.onActionViewExpanded()
 
         super.onCreateOptionsMenu(menu, inflater)
     }

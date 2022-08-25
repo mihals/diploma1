@@ -16,33 +16,6 @@ class SingleRecipeFragment : Fragment() {
     private val viewModel:RecipeViewModel by activityViewModels ()
     private lateinit var recipe:Recipe
 
-//    private val popupMenu by lazy{
-//        PopupMenu(//activity!!.baseContext,
-//            context,
-//            view?.findViewById(R.id.options)
-//        ).apply {
-//            inflate(R.menu.options)
-//            setOnMenuItemClickListener { item ->
-//                when(item.itemId){
-//                    R.id.remove ->{
-//                        viewModel.onRemoveRecipeClicked(recipe)
-//                        findNavController().popBackStack()
-//                    }
-//                    R.id.edit ->{
-//                        findNavController().navigate(
-//                            SingleRecipeFragmentDirections
-//                                .actionSingleRecipeFragmentToNewRecipeFragment(
-//                                    recipe.id))
-//                    }
-//                    R.id.toList ->{
-//                        findNavController().popBackStack()
-//                    }
-//                }
-//                true
-//            }
-//        }
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //recipe = viewModel.getById(args.recipeId)
@@ -77,7 +50,7 @@ class SingleRecipeFragment : Fragment() {
             }
 
             val popupMenu =
-                PopupMenu(//activity!!.baseContext,
+                PopupMenu(
                     context,
                     binding.options
                 ).apply {
@@ -104,5 +77,4 @@ class SingleRecipeFragment : Fragment() {
             binding.options.setOnClickListener{popupMenu.show()}
 
         }.root
-        //return inflater.inflate(R.layout.fragment_single_recipe, container, false)
 }
