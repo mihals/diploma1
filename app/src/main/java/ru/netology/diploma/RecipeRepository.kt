@@ -1,5 +1,4 @@
 package ru.netology.diploma
-//import Collections.kt
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
@@ -22,6 +21,7 @@ class RecipeRepository(
             data = (Transformations.map(dao.getAll()) { entities ->
                 entities.map { it.toModel() }
             } as MutableLiveData<List<Recipe>>)
+
             return
         }
 

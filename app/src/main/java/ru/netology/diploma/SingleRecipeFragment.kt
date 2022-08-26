@@ -18,7 +18,6 @@ class SingleRecipeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //recipe = viewModel.getById(args.recipeId)
     }
 
     override fun onCreateView(

@@ -1,6 +1,5 @@
 package ru.netology.diploma
 
-//import android.app.SearchManager;
 import android.app.Activity
 import android.app.SearchManager
 import android.content.Context
@@ -24,8 +23,7 @@ class RecipeListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //viewModel.selectAll()
-        viewModel.changeKitchenKindEvent.observe(this) {
+        viewModel.data.observe(this) {
             RecipeAdapter(viewModel).notifyDataSetChanged()
         }
         viewModel.navigateToSingleRecipeFragmentEvent
@@ -125,7 +123,9 @@ class RecipeListFragment : Fragment() {
                 viewModel.data.observe(viewLifecycleOwner){recipes->
                     RecipeAdapter(viewModel).submitList(recipes)
                 }
-                 return true
+                searchItem.collapseActionView()
+                findNavController().navigate(R.id.recipeListFragment)
+                return true
             }
         })
 
